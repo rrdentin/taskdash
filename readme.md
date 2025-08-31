@@ -8,7 +8,7 @@
 </div>
 
 ## Description
-TaskDash is a simple to-do app built using **vanilla JavaScript**, **Tailwind CSS**, and **SweetAlert**. The app allows users to sign up, sign in, manage their tasks, and add new tasks. Tasks are stored using **localStorage** for persistence and **sessionStorage** for session-based logins. Task management features include CRUD (Create, Read, Update, Delete) operations, allowing users to interact with their tasks easily.
+TaskDash is a simple task management app built using **vanilla JavaScript**, **Tailwind CSS**, and **SweetAlert**. The app allows users to sign up, sign in, manage their tasks, and add new tasks. Tasks are stored using **localStorage** for persistence and **sessionStorage** for session-based logins. Task management features include CRUD (Create, Read, Update, Delete) operations, allowing users to interact with their tasks easily.
 
 ![](https://media.discordapp.net/attachments/597637032780627971/1411718743356342282/image.png?ex=68b5ad08&is=68b45b88&hm=015fef6edb4fe9e830163a9296b4905bbdd96714dcd2868d7cabcec3ffb28a29&=&format=webp&quality=lossless&width=1676&height=800)
 
