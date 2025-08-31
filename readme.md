@@ -13,6 +13,11 @@ TaskDash is a simple to-do app built using **vanilla JavaScript**, **Tailwind CS
 ![](https://media.discordapp.net/attachments/597637032780627971/1411718743356342282/image.png?ex=68b5ad08&is=68b45b88&hm=015fef6edb4fe9e830163a9296b4905bbdd96714dcd2868d7cabcec3ffb28a29&=&format=webp&quality=lossless&width=1676&height=800)
 
 ## Technologies Used
+<div align="center">
+
+![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)</div>
 - **HTML5** (For the structure of the web pages)
 - **JavaScript** (Vanilla)
 - **Tailwind CSS** (For styling)
