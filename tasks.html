@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/public/style/output.css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Task Management | taskdash - daintycube</title>
+    <meta name="description"
+        content="A lightweight, feature-rich To-Do List application built with Vanilla JavaScript and Tailwind CSS. Taskdash enables users to manage tasks efficiently through features like account persistence using local and session storage, CRUD operations, sorting, prioritization, task completion tracking, and intuitive search functionality.">
+    <meta name="keywords"
+        content="To-Do List , Task Management , Vanilla JavaScript , Tailwind CSS , Local Storage , Session Storage , CRUD Operations , Task Prioritization, User Authentication , Responsive Design">
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "taskdash",
+            "description": "A lightweight, feature-rich To-Do List application built with Vanilla JavaScript and Tailwind CSS. Taskdash enables users to manage tasks efficiently through features like account persistence using local and session storage, CRUD operations, sorting, prioritization, task completion tracking, and intuitive search functionality.",
+            "url": "https://www.taskdash.daintyc.xyz",
+            "keywords": ["To-Do List", "Task Management", "Vanilla JavaScript", "Tailwind CSS", "Local Storage", "Session Storage", "CRUD Operations", "Task Prioritization", "User Authentication", "Responsive Design"]
+            "potentialAction": {
+                "@type": "ViewAction",
+                "target": "https://www.taskdash.daintyc.xyz",
+            }
+        }
+    </script>
+    <link rel="icon" href="/public/favicon.ico" type="icon/x-icon">
+
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+</head>
+
+
+<body class="text-taskia-black font-poppins">
+    <section id="Dashboard" class="flex">
+        <div id="Sidebar"
+            class="w-[280px] flex flex-col gap-[30px] p-[30px] shrink-0 h-screen overflow-y-scroll no-scrollbar">
+            <div class="flex justify-center">
+                <img src="/public/img/logo-1.svg" alt="logo">
+            </div>
+            <div class="general-menu flex flex-col gap-[18px]">
+                <h3 class="font-semibold text-sm leading-[21px]">GENERAL</h3>
+                <a href="tasks.html"
+                    class="flex items-center gap-[10px] p-[12px_16px] h-12 rounded-full bg-taskia-light-orange drop-shadow-[0_10px_20px_rgba(255,216,141,0.50)]">
+                    <div class="w-6 h-6">
+                        <img src="/public/img/icons/note-favorite.svg" alt="icon">
+                    </div>
+                    <p class="font-semibold">Manage Task</p>
+                </a>
+                <a href="add-task.html"
+                    class="flex items-center gap-[10px] p-[12px_16px] h-12 rounded-full border border-taskia-background-grey">
+                    <div class="w-6 h-6">
+                        <img src="/public/img/icons/message-question.svg" alt="icon">
+                    </div>
+                    <p class="font-semibold">Add New Task</p>
+                </a>
+
+            </div>
+            <hr class="text-taskia-background-grey">
+            <div class="general-menu flex flex-col gap-[18px]">
+                <h3 class="font-semibold text-sm leading-[21px]">OTHERS</h3>
+
+                <a id="logoutButton" href="index.html"
+                    class="flex items-center gap-[10px] p-[12px_16px] h-12 rounded-full border border-taskia-background-grey">
+                    <div class="w-6 h-6">
+                        <img src="/public/img/icons/forbidden-2.svg" alt="icon">
+                    </div>
+                    <p class="font-semibold">Logout</p>
+                </a>
+            </div>
+        </div>
+        <div id="Content"
+            class="flex flex-col bg-taskia-background-grey rounded-l-[60px] w-full h-screen overflow-y-scroll p-[50px] gap-[30px]">
+            <div class="dashboard-nav bg-white flex justify-between items-center w-full  p-4 rounded-[18px]">
+                <div
+                    class="dashboard-search flex items-center p-[12px_20px] rounded-full border border-taskia-background-grey w-[400px] h-12 focus-within:ring-2 focus-within:ring-taskia-purple">
+                    <input type="text"
+                        class="font-semibold placeholder:text-taskia-grey placeholder:font-normal focus:outline-none w-full"
+                        placeholder="Search by name..." name="name" required>
+                    <button class="ml-[10px] w-6 h-6 flex items-center justify-center">
+                        <img src="/public/img/icons/search-normal.svg" alt="icon">
+                    </button>
+                </div>
+                <div class="flex gap-[30px] items-center">
+                    <div class="flex h-12 border-x border-[0.5px] border-taskia-background-grey"></div>
+                    <div class="flex gap-3 items-center">
+                        <div class="*:text-right flex flex-col">
+                            <p class="text-taskia-grey text-sm w-full">Howdy,</span>
+                            <p class="font-bold" id="usernameLoggedIn"></p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full overflow-hidden">
+                            <img src="/public/img/default-avatar.svg" class="object-cover h-full w-full" alt="photo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col gap-[30px]">
+                <div class="content-header flex justify-between items-center">
+                    <div>
+                        <h1 class="font-extrabold text-[30px] leading-[45px]">Manage Task</h1>
+                        <p class="leading-[21px] text-sm">Set the goals to grow</p>
+                    </div>
+                    <div class="flex gap-3 items-center">
+                        <div class="flex items-center gap-2">
+                            <label for="sortSelect" class="text-sm text-taskia-grey">Sort:</label>
+                            <select id="sortSelect"
+                                class="h-12 rounded-2xl border border-taskia-background-grey px-4 bg-white">
+                                <option value="date_desc">Date (Newest)</option>
+                                <option value="date_asc">Date (Oldest)</option>
+                                <option value="priority_desc">Priority (High → Low)</option>
+                                <option value="priority_asc">Priority (Low → High)</option>
+                            </select>
+                        </div>
+                        <!-- Show/Hide Completed -->
+                        <div class="flex items-center gap-2">
+                            <input id="toggleCompleted" type="checkbox" class="h-4 w-4 accent-[#6F4FFF]" checked />
+                            <label for="toggleCompleted" class="text-sm text-taskia-grey" for="toggleCompleted">
+                                Show completed
+                            </label>
+                        </div>
+                        <a id="btnAddTaskHeader" href="add-task.html"
+                            class="flex gap-[10px] justify-center items-center text-white p-[12px_20px] h-12 font-semibold bg-gradient-to-b from-[#977FFF] to-[#6F4FFF] rounded-full w-full border border-taskia-background-grey">Add
+                            New Task</a>
+                    </div>
+                    <!-- Sort Dropdown -->
+
+                </div>
+                <!-- if task != 0 -->
+                <div class="flex flex-col gap-6" id="taskWrapper">
+
+                </div>
+                <div class="flex justify-center items-center h-[420px] mx-auto" id="taskWrapperEmpty">
+                    <div
+                        class="bg-white p-[30px] gap-[30px] rounded-[30px] w-[350px] shrink-0 flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full bg-[#FEE7BA] flex shrink-0 items-center justify-center">
+                            <img src="/public/img/icons/note-favorite-dark-orange.svg" alt="icon">
+                        </div>
+                        <div class="flex flex-col gap-[10px] text-center">
+                            <p class="font-bold text-xl leading-[30px]">Oops! No Task</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/public/js/Task.js"></script>
+    <script src="/public/js/manageTask.js"></script>
+    <script src="/public/js/signOut.js"></script>
+
+</body>
+
+</html>
