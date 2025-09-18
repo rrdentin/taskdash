@@ -2,7 +2,7 @@
 
 <div align="center">
     
-  ![image](https://media.discordapp.net/attachments/597637032780627971/1411710977115684924/logo-1.png?ex=68b5a5cd&is=68b4544d&hm=2a46af5d49e015e445ba721ed00d1845443e9329b8a98a1ff72363c07abb2705&=&format=webp&quality=lossless&width=288&height=63)
+  ![image](https://cdn.discordapp.com/attachments/597637032780627971/1411733140430389281/image.png?ex=68cd7571&is=68cc23f1&hm=a9bc3a9dcce7101a8e9351ab5b6a2c4fe322e5410d2864cb0c907e915c3d4e21)
 
 [![Website](https://img.shields.io/website?url=http%3A%2F%2Ftaskdash.daintyc.xyz/%2F&up_message=Click%20Here%20%F0%9F%92%97&up_color=purple&style=social&logo=love&label=%E2%AD%90%20Check%20Out%20The%20Full%20Website)](http://taskdash.daintyc.xyz/)
 </div>
